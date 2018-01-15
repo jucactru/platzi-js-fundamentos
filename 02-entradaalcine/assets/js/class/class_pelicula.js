@@ -7,8 +7,9 @@ class Pelicula {
    * [constructor de la clase]
    * @param {string}    pNombre     [Nombre de la película]
    * @param {Number}    pPg         [Edad máxima para visualizar la película]
+   * @param {Number}    pCompania
    */
-  constructor(pNombre, pPg) {
+  constructor(pNombre, pPg, pCompania) {
     /**
      * [NOMBRE propiedad que almacena el nombre de la película]
      * @type {string}
@@ -20,6 +21,12 @@ class Pelicula {
      * @type {Number}
      */
     this.PG = pPG;
+
+    /**
+     * [COMPANIA propiedad que permite detectar si la pelicula permite compañía a las personas que no cumplan con el PG]
+     * @type {[type]}
+     */
+    this.COMPANIA = pCompania;
   }
 
   /**
