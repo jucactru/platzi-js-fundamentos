@@ -2,30 +2,31 @@
  * [Persona clase que representa las personas que asisten al cine]
  */
 class Persona {
+
   /**
    * [constructor de la clase]
-   * @param {string}    pNombre     [Nombre de la persona]
-   * @param {Number}    pEdad       [Edad de la persona]
-   * @param {Number}    pSolo       [Marca si la persona está sola]
+   * @param {Array}    pData       [Data completa de la persona]
    */
-  constructor(pNombre, pEdad, pSolo = 0) {
+  constructor(pData) {
+
     /**
      * [NOMBRE propiedad que almacena el nombre de la persona]
      * @type {string}
      */
-    this.NOMBRE = pNombre;
+    this.NOMBRE = pData.nombre;
 
     /**
      * [EDAD propiedad que almacena la edad de la persona]
      * @type {Number}
      */
-    this.EDAD = pEdad;
+    this.EDAD = pData.edad;
 
     /**
-     * [SOLO pripiedad que almacena si la persona se encuenta acompañada o sola]
-     * @type {Number}
+     * [ACOMPANANTE propiedad que almacena la persona que acompaña]
+     * @type {Persona}
      */
-    this.SOLO = pSolo;
+    this.ACOMPANANTE;
+
   }
 
   /**
@@ -45,11 +46,11 @@ class Persona {
   }
 
   /**
-   * [getSOLO método que devuelve la propiedad SOLO]
-   * @return    {Number}    [valor actual de SOLO]
+   * [getAcompanante método que devuelve la propiedad ACOMPANANTE]
+   * @return    {Persona}    [valor actual de ACOMPANANTE]
    */
-  getSOLO() {
-    return this.SOLO;
+  getAcompanante() {
+    return this.ACOMPANANTE;
   }
 
   /**
@@ -69,10 +70,11 @@ class Persona {
   }
 
   /**
-   * [setSolo método que modifica la propiedad SOLO]
-   * @param {Number}    pSolo     [valor de SOLO a asignar]
+   * [setAcompanante método que modifica la propiedad ACOMPANANTE]
+   * @param {Persona}   pAcompanante     [valor de ACOMPANANTE a asignar]
    */
-  setSolo(pSolo) {
-    this.SOLO = pSolo;
+  setAcompanante(pAcompanante) {
+    this.ACOMPANANTE = pAcompanante;
   }
+
 }
