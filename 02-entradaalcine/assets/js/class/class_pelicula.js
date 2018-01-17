@@ -20,7 +20,7 @@ class Pelicula {
      * [PG propiedad que almacena la edad máxima para ingresar libremente a la película]
      * @type {Number}
      */
-    this.PG = pPG;
+    this.PG = pPg;
 
     /**
      * [COMPANIA propiedad que permite detectar si la pelicula permite compañía a las personas que no cumplan con el PG]
