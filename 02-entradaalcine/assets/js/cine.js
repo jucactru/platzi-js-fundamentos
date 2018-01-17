@@ -71,7 +71,7 @@ const iniciarPeliculas = () => {
  * @param  {Pelicula}     pPelicula         [pelicula a la que va a ingresar]
  * @return {none}
  */
-const puedeEntrar = (pPersona, pPelicula, pEstaConAduto = false) => {
+const puedeEntrar = (pPersona, pPelicula) => {
   //defino el valor alerta
   let valorAlerta = `${pPersona.NOMBRE} NO puede entrar a ver " - ${pPelicula.NOMBRE} - ", tiene ${pPersona.EDAD} años y para entrar debe tener ${pPelicula.PG} años`;
   //valido la edad y la compañia de la persona
