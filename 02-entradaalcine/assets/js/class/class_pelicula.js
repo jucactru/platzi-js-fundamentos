@@ -9,7 +9,7 @@ class Pelicula {
    * @param {Number}    pPg         [Edad máxima para visualizar la película]
    * @param {Number}    pCompania
    */
-  constructor(pNombre, pPg, pCompania) {
+  constructor(pNombre, pPg, pCompania = 0) {
     /**
      * [NOMBRE propiedad que almacena el nombre de la película]
      * @type {string}
@@ -24,7 +24,7 @@ class Pelicula {
 
     /**
      * [COMPANIA propiedad que permite detectar si la pelicula permite compañía a las personas que no cumplan con el PG]
-     * @type {[type]}
+     * @type {Number}
      */
     this.COMPANIA = pCompania;
   }
@@ -44,4 +44,21 @@ class Pelicula {
   getNombre() {
     return this.NOMBRE;
   }
+
+  /**
+   * [getCompania método que devuelve el valor de la propiedad COMPANIA]
+   * @return    {Number}    [Valor actual de la propiedad COMPANIA]
+   */
+  getCompania() {
+    return this.COMPANIA;
+  }
+
+  /**
+   * [setPG Método que modifica la propiedad PG]
+   * @param     {Number}    pPG     [valor de PG a cambiar]
+   */
+  setPG(pPG) {
+    this.PG = pPG;
+  }
+
 }
