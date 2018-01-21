@@ -61,7 +61,7 @@ const peleadoresVivos = () => {
   //creo el valor retorno
   let valorRetorno = true;
   //itero la dataPeleadores
-  for (dataRealPeleadores of itemPeleador) {
+  for (itemPeleador of dataRealPeleadores) {
     //valido si la vida del peleador es cero (0) o menos
     if (itemPeleador.VIDA <= 0) {
       //cambio el valor retorno
@@ -80,6 +80,15 @@ const peleadoresVivos = () => {
  */
 const calcularAtaque = () => Math.round(Math.random() * (PODER_MAX - PODER_MIN) + PODER_MIN);
 
+const asignarAtaque = () => {
+  //itero la dataRealPeleadores
+  for (let i = 0; i < dataRealPeleadores.length; i++) {
+    //calculo el ataque y lo asigno al peleador
+    dataRealPeleadores[i].ATAQUE = calcularAtaque();
+  }
+}
+
+
 /**
  * [iniciarPelea función que inicia la pelea]
  * @return {none} [no hay retorno]
@@ -87,9 +96,11 @@ const calcularAtaque = () => Math.round(Math.random() * (PODER_MAX - PODER_MIN) 
 const iniciarPelea = () => {
   //valido si los peleadores están vivos
   if (peleadoresVivos()) {
-
+    asignarAtaque();
   }
 }
 
 //inicio los dataPeleadores
 iniciarPeleadores();
+//inicio la pelea
+iniciarPelea();
