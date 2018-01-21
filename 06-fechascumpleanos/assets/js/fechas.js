@@ -14,6 +14,8 @@ const dataDias = ['Domingo', 'Lúnes', 'Martes', 'Miércoles', 'Jueves', 'Vierne
  */
 const dataMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
+/**
+ * [fechaActual variable que almacena la fecha actual]
+ * @type {Date}
+ */
 const fechaActual = new Date();
-
-var fechaNaciemiento;
