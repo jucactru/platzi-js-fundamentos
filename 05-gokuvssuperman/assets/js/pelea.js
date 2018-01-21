@@ -92,6 +92,72 @@ const asignarAtaque = () => {
   }
 }
 
+/**
+ * [quienGanaRound función que determina el ganador del round]
+ * @return {Number}
+ */
+const quienGanaRound = () => {
+  //creo el valor del ganador
+  let valorGanador = 0;
+  //itreo la dataRealPeleadores
+  for (let i = 0; i < dataRealPeleadores.length; i++) {
+    //valido si i es mayor a 0 (cero)
+    if (i > 0) {
+      //comparo los ataques y asigno el ganador
+      valorGanador = (dataRealPeleadores[i].ATAQUE > dataRealPeleadores[valorGanador].ATAQUE) ? i : valorGanador;
+    }
+  }
+  //devuelvo el valor ganador
+  return valorGanador;
+}
+/**
+ * [atacar función que realiza el ataque del round]
+ * @param  {Number} pGanador  [la posición del peleador ganador]
+ * @return {none}             [No hay retorno]
+ */
+const atacar = (pGanador) => {
+  console.log(`el ganador es ${dataRealPeleadores[pGanador].NOMBRE}, con un ataque de ${dataRealPeleadores[pGanador].ATAQUE}`);
+  //itero la dataRealPeleadores
+  for (let i = 0; i < dataRealPeleadores.length; i++) {
+    //valido si el item es diferente del ganadorRound
+    if (i != pGanador) {
+      //se reduce la vida del peleador con el poder del ganador del round
+      dataRealPeleadores[i].VIDA -= dataRealPeleadores[pGanador].ATAQUE;
+    }
+  }
+}
+/**
+ * [estadoPeleadores Función que muestra el estado de vida de los peleadores]
+ * @return {none} [no hay retorno]
+ */
+const estadoPeleadores = () => {
+  //itero la dataRealPeleadores
+  for (itemPeleador of dataRealPeleadores) {
+    console.log(`El peleador ${itemPeleador.NOMBRE} queda con ${itemPeleador.VIDA} de vida`);
+  }
+}
+/**
+ * [ganadorPelea función que presenta al ganador de la pelea]
+ * @return {none} [no hay retorno]
+ */
+const ganadorPelea = () => {
+  //defino la variable ganador
+  let valorGanador = 0;
+  //itero la dataRealPeleadores
+  for (let i = 0; i < dataRealPeleadores.length; i++) {
+    //valido si i es mayor a 0 (cero)
+    if (i > 0) {
+      //comparo la VIDA de los peleadores y asigno el ganador
+      valorGanador = (dataRealPeleadores[i].VIDA > dataRealPeleadores[valorGanador].VIDA) ? i : valorGanador;
+    }
+  }
+  //muestro el ganadorRound
+  console.log('-------------------------------------');
+  console.log(`El ganador de la pelea es ${dataRealPeleadores[valorGanador].NOMBRE}`);
+  console.log(`Su vida restante es ${dataRealPeleadores[valorGanador].VIDA}`);
+  console.log(`Su ataque final fue de: ${dataRealPeleadores[valorGanador].ATAQUE}`);
+  console.log('-------------------------------------');
+}
 
 /**
  * [iniciarPelea función que inicia la pelea]
@@ -99,9 +165,22 @@ const asignarAtaque = () => {
  */
 const iniciarPelea = () => {
   //valido si los peleadores están vivos
-  if (peleadoresVivos()) {
+  while (peleadoresVivos()) {
+    console.log('-------------------------------------');
+    console.log(`Inicia el Round ${roundPelea}`);
+    //asigno el ataque
     asignarAtaque();
+    //realizo el ataque
+    atacar(quienGanaRound());
+    //muestro el estado de los peleadores
+    estadoPeleadores();
+    console.log('Final del Round');
+    console.log('-------------------------------------');
+    //aumento el roundPelea
+    roundPelea++;
   }
+  //muestro el ganador de la pelea
+  ganadorPelea();
 }
 
 //inicio los dataPeleadores
