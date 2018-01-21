@@ -55,7 +55,7 @@ const iniciarPeleadores = () => {
 
 /**
  * [peleadoresVivos función que determina si los peleadores están vidos]
- * @return {[type]} [description]
+ * @return {Boolean}
  */
 const peleadoresVivos = () => {
   //creo el valor retorno
@@ -80,6 +80,10 @@ const peleadoresVivos = () => {
  */
 const calcularAtaque = () => Math.round(Math.random() * (PODER_MAX - PODER_MIN) + PODER_MIN);
 
+/**
+ * [asignarAtaque función que asigna el ataque a cada peleador]
+ * @return {none} [no hay retorno]
+ */
 const asignarAtaque = () => {
   //itero la dataRealPeleadores
   for (let i = 0; i < dataRealPeleadores.length; i++) {
