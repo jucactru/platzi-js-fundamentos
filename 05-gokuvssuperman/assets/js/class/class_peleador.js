@@ -19,6 +19,11 @@ class Peleador {
      * @type {Number}
      */
     this.VIDA = pDataPeleador.vida;
+    /**
+     * [NOMBRE propiedad que almacena el ATAQUE del peleador]
+     * @type {Number}
+     */
+    this.ATAQUE;
   }
 
   /**
@@ -30,13 +35,20 @@ class Peleador {
   }
 
   /**
-   * [getVida método que devuelve la vida del peleador]
+   * [getVida método que devuelve la VIDA del peleador]
    * @return {Number}
    */
   getVida() {
     return this.VIDA;
   }
 
+  /**
+   * [getVida método que devuelve el ATAQUE del peleador]
+   * @return {Number}
+   */
+  getAtaque() {
+    return this.ATAQUE;
+  }
   /**
    * [setNombre método que modifica el NOMBRE del peleador]
    * @param {String} pNombre
@@ -53,4 +65,11 @@ class Peleador {
     this.VIDA = pVida;
   }
 
+  /**
+   * [setVida método que modifica la VIDA del peleador]
+   * @param {Number} pAtaque
+   */
+  setVida(pAtaque) {
+    this.ATAQUE = pAtaque;
+  }
 }
