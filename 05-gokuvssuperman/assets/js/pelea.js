@@ -34,7 +34,7 @@ let dataRealPeleadores = [];
  * [roundPelea variable que determina en que round de la pelea se va]
  * @type {Number}
  */
-let roundPelea = 1;
+let roundPelea = 0;
 
 /**
  * [iniciarPeleadores Función que inicia a los peleadores en el sistema]
@@ -153,9 +153,11 @@ const ganadorPelea = () => {
   }
   //muestro el ganadorRound
   console.log('-------------------------------------');
-  console.log(`El ganador de la pelea es ${dataRealPeleadores[valorGanador].NOMBRE}`);
-  console.log(`Su vida restante es ${dataRealPeleadores[valorGanador].VIDA}`);
+  console.log(`YA HAY UN GANADOR`);
+  console.log(`El peleador ganador fue: ${dataRealPeleadores[valorGanador].NOMBRE}`);
+  console.log(`Su vida restante es: ${dataRealPeleadores[valorGanador].VIDA}`);
   console.log(`Su ataque final fue de: ${dataRealPeleadores[valorGanador].ATAQUE}`);
+  console.log(`La Pelea duro ${roundPelea}`);
   console.log('-------------------------------------');
 }
 
@@ -166,6 +168,8 @@ const ganadorPelea = () => {
 const iniciarPelea = () => {
   //valido si los peleadores están vivos
   while (peleadoresVivos()) {
+    //aumento el roundPelea
+    roundPelea++;
     console.log('-------------------------------------');
     console.log(`Inicia el Round ${roundPelea}`);
     //asigno el ataque
@@ -176,8 +180,7 @@ const iniciarPelea = () => {
     estadoPeleadores();
     console.log('Final del Round');
     console.log('-------------------------------------');
-    //aumento el roundPelea
-    roundPelea++;
+
   }
   //muestro el ganador de la pelea
   ganadorPelea();
