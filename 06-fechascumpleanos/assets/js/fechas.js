@@ -27,7 +27,7 @@ const dataMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio
  * [fechaActual variable que almacena la fecha actual]
  * @type {Date}
  */
-const fechaActual = new Date();
+let fechaActual;
 
 /** -------------------------------------------------- **/
 /** -----------------FUNCIONES------------------------ **/
@@ -42,5 +42,28 @@ const crearPersona = (pKey) => {
   //creo la persona
   return new Persona(dataPersonas[pKey]);
 }
+
+const datosNacimiento = (pPersona) => {
+  //obtengo la fechaActual
+  fechaActual = new Date();
+  //determino cuanto milisegundos han pasado
+  let fechaMilisegundos = fechaActual - pPersona.getNacimiento();
+  console.log(`${fechaMilisegundos.toFixed(2)} Milisegundos`);
+  let fechaSegundos = fechaMilisegundos / 1000;
+  console.log(`${fechaSegundos.toFixed(2)} Segundos`);
+  let fechaMinutos = fechaSegundos / 60;
+  console.log(`${fechaMinutos.toFixed(2)} Minutos`);
+  let fechaHoras = fechaMinutos / 60;
+  console.log(`${fechaHoras.toFixed(2)} Horas`);
+  let fechaDias = fechaHoras / 24;
+  let fechaAnios = fechaDias / 365;
+  let fechaMeses = fechaAnios * 12;
+  console.log(`${fechaDias.toFixed(2)} Días`);
+  console.log(`${fechaMeses.toFixed(2)} Meses`);
+  console.log(`${fechaAnios.toFixed(2)} Años`);
+
+}
+
 //creo a juan
 juan = crearPersona(0);
+datosNacimiento(juan);
