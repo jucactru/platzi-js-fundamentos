@@ -1,4 +1,13 @@
 /** -------------------------------------------------- **/
+/** ------------------PERSONAS------------------------ **/
+/** -------------------------------------------------- **/
+const dataPersonas = [{
+  nombre: 'Juan Carlos',
+  apellido: 'Castañeda Trujillo',
+  nacimiento: '1985-05-04'
+}];
+
+/** -------------------------------------------------- **/
 /** -----------------CONSTANTES----------------------- **/
 /** -------------------------------------------------- **/
 
@@ -19,3 +28,19 @@ const dataMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio
  * @type {Date}
  */
 const fechaActual = new Date();
+
+/** -------------------------------------------------- **/
+/** -----------------FUNCIONES------------------------ **/
+/** -------------------------------------------------- **/
+
+/**
+ * [crearPersona función que crea un objeto Persona]
+ * @param  {Number}     pKey    [posición del array de dataPersonas]
+ * @return {Persona}
+ */
+const crearPersona = (pKey) => {
+  //creo la persona
+  return new Persona(dataPersonas[pKey]);
+}
+//creo a juan
+juan = crearPersona(0);
