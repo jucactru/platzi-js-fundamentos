@@ -154,9 +154,4 @@ class Persona {
     this.NOMBRECOMPLETO = `${this.getNombre()} ${this.getApellido()}`;
   }
 
-
-
-
-
-
 }
