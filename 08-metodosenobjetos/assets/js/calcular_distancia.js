@@ -4,7 +4,14 @@
  */
 const p1 = {
   x: 0,
-  y: 4
+  y: 4,
+  moverEnX(x) {
+    this.x += x;
+  },
+  moverEnY(y) {
+    this.y += y;
+  }
+
 };
 
 /**
@@ -13,7 +20,13 @@ const p1 = {
  */
 const p2 = {
   x: 3,
-  y: 0
+  y: 0,
+  moverEnX(x) {
+    this.x += x;
+  },
+  moverEnY(y) {
+    this.y += y;
+  }
 }
 
 /**
@@ -28,7 +41,7 @@ const calcularDistancia = (pPosicion1, pPosicion2) => {
   //obtengo el valor y
   let valorY = pPosicion1.y - pPosicion2.y;
   //retorno el calculo
-  return Math.sqrt(Math.pow(valorX, 2) + Math.pow(valorY, 2));
+  return Math.sqrt(Math.pow(valorX, 2) + Math.pow(valorY, 2)).toFixed(2);
 }
 
 console.log(calcularDistancia(p1, p2));
